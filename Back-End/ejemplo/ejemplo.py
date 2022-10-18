@@ -46,7 +46,6 @@ for fila in celdas:
     personas.append(persona)
 
 
-
 # Imprimir personas ----------------------
 #for persona in personas:
 #    print(f"{persona[0]} tiene {persona[1]} anios")
