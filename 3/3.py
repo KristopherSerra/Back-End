@@ -14,7 +14,7 @@ def get_range(i):
 def createNumber(l,f, i):
     if (l != 0):
         start = l*(10**f)
-        end = (l+1)*((10**f)-1)
+        end = ((l+1)*(10**f))-1
         for j in range(start, end):
             rango = str(rangoCompleto[i][:-1])
             rest = str(j)
