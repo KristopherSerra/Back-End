@@ -11,11 +11,11 @@ from openpyxl.chart import BarChart3D,Reference, PieChart,ProjectedPieChart
  
 
 
-informes = pd.read_excel("c:/Users/Kristopher/Desktop/De Todo/Universidad/LdL/BackEnd/5\BDE.xlsx")
+informes = pd.read_excel("BDE.xlsx")
 tabla_pivote = informes.pivot_table(index="LOCALIDAD",columns='MODALIDAD', values='BLOQUE')
-tabla_pivote.to_excel('c:/Users/Kristopher/Desktop/De Todo/Universidad/LdL/BackEnd/5\InformeAutomatico.xlsx', startrow=4,sheet_name='Octubre 2022')
+tabla_pivote.to_excel('Informe Automatico.xlsx', startrow=4,sheet_name='Octubre 2022')
 
-lectura = load_workbook('c:/Users/Kristopher/Desktop/De Todo/Universidad/LdL/BackEnd/5\InformeAutomatico.xlsx')
+lectura = load_workbook('InformeAutomatico.xlsx')
 pestaña = lectura['Octubre 2022']
 min_columna= lectura.active.min_column
 max_columna= lectura.active.max_column
@@ -33,6 +33,18 @@ graficoDeBarras.y_axis.title = 'Modalidad'
 graficoDeBarras.x_axis.title = 'Localidad'
 pestaña.add_chart(graficoDeBarras)
 
+'''
+graficoDeTorta = PieChart()
+data = Reference(pestaña, min_col=min_columna,max_col=max_columna, min_row=min_fila,max_row=max_fila)
+categorias = Reference(pestaña, min_col=min_columna,max_col=min_columna, min_row=min_fila,max_row=max_fila)
+
+graficoDeTorta.add_data(data, titles_from_data=True)
+graficoDeTorta.set_categories(categorias)
+graficoDeTorta.title = "Resumen"
+pestaña.add_chart(graficoDeTorta)
+'''
+
+lectura.save('c:/Users/Kristopher/Desktop/De Todo/Universidad/LdL/BackEnd/5\InformeAutomatico.xlsx')
 '''
 graficoDeTorta = PieChart()
 data = Reference(pestaña, min_col=min_columna,max_col=max_columna, min_row=min_fila,max_row=max_fila)
