@@ -78,7 +78,7 @@ mycursor = mydb.cursor()
 
 # --------------------
 for i in range(len(numeros)):
-    sql = "INSERT INTO telefonos (localidad , telefono) VALUES (%s, %s)"
+    sql = "INSERT INTO telefono (localidad , numero) VALUES (%s, %s)"
     val = (loc, numeros[i])
     mycursor.execute(sql, val)
 
